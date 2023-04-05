@@ -1,0 +1,13 @@
+# run: conda env create --file environment.yml
+
+name: realestenv
+dependencies:
+- python==3.8
+- pandas==1.5.3
+- numpy
+- pip
+- pip:
+  # works for regular pip packages
+  - jupyter
+  - matplotlib
+  - seaborn
