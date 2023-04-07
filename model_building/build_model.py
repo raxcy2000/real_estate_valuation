@@ -10,11 +10,7 @@ def perform_train_test_split(df_features, df_target):
     X_train, X_test, y_train, y_test = (
         train_test_split(df_features, df_target, test_size=0.25, random_state=42)
         )
-
-    # train_data, test_data = (
-    #     train_test_split(df, test_size=0.33, random_state=42)
-    # )
-    # return train_data, test_data
+        
     return X_train, X_test, y_train, y_test
 
 

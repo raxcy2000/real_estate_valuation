@@ -1,22 +1,16 @@
 from parameters.parameters import (
     data_file_path, linreg_params
 )
-from data_ingestion.ingest import get_data
+from data_ingestion.ingest import get_data, get_feature_target
 from model_building.build_model import linreg_model_build, evaluator
 
 
-# Stage 0 - Data Ingestion
 print("Starting Data Ingestion")
 
 house_data = get_data(data_file_path)
 print(house_data.head())
 
-
-features = house_data.iloc[:,:-1]
-target = house_data.iloc[:,-1]
-print(f"Shape of features is {features.shape}")
-print(f"Shape of target is {target.shape}")
-
+features, target = get_feature_target(house_data)
 
 X_test, y_test, filename = linreg_model_build(
     features, target, linreg_params
