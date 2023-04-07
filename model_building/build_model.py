@@ -34,11 +34,10 @@ def linreg_model_build(df_features, df_target, linreg_params):
 
 def evaluator(X_test, y_test, filename):
     '''
-    load the model from disk
+    load the model 
     '''
     loaded_model = joblib.load(filename)
     predicted = loaded_model.predict(X_test)
     result = mean_squared_error(y_test,predicted)
-  
-    #result = loaded_model.score(X_test, y_test)
+
     return result
